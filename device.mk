@@ -10,6 +10,9 @@ $(call inherit-product-if-exists, vendor/xiaomi/violet/violet-vendor.mk)
 # GoogleCamera
 $(call inherit-product-if-exists, packages/apps/GoogleCamera/gcam.mk)
 
+# Firmware
+$(call inherit-product, vendor/xiaomi/violet/firmware/firmware.mk)
+
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
@@ -117,6 +120,9 @@ PRODUCT_PACKAGES += \
     liba2dpoffload \
     libbthost_if \
     libldacBT_dec
+
+# Boot SPL
+BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
@@ -327,6 +333,9 @@ PRODUCT_PACKAGES += \
     libjson \
     libqti_vndfwk_detect.vendor
 
+# Vendor SPL
+VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
+
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
@@ -358,10 +367,6 @@ PRODUCT_PACKAGES += \
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
-
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_xiaomi
 
 # RIL
 PRODUCT_PACKAGES += \

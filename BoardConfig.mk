@@ -10,18 +10,16 @@ DEVICE_PATH := device/xiaomi/violet
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv8-2a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := kryo385
+TARGET_CPU_VARIANT := cortex-a75
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
+TARGET_2ND_CPU_VARIANT := cortex-a75
 
 TARGET_USES_64_BIT_BINDER := true
 
@@ -91,9 +89,6 @@ BOARD_USES_QCNE := true
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
-# Set boot SPL
-BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
-
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
@@ -157,7 +152,6 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_xiaomi
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # RenderScript
@@ -170,9 +164,6 @@ TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 
 # SurfaceFlinger
 TARGET_USE_AOSP_SURFACEFLINGER := true
-
-# Security patch level
-VENDOR_SECURITY_PATCH := 2018-08-05
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
